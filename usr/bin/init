@@ -1,0 +1,8 @@
+#!/bin/sh
+if !["/var/bocker/core" -f];ostree --repo=/var/bocker/core init /;fi
+ostree --repo=/var/bocker/core checkout HEAD /
+bocker cp $(bocker build /lib/builder/alpine) alpine
+bocker cp $(bocker build /lib/builder/puppy) puppy
+bocker pull docker sorccu/adb
+dbus-daemon --address=unix:/dbus/dbus.sock &
+MOUNT="/tmp/.X11-unix:/tmp/.X11-unix /dev:/dev /var/.config:/root/.config" bocker run x11docker/gnome gnome-session &

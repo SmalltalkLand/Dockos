@@ -1,0 +1,1 @@
+UNSQUASH $(cd /tmp;rm -rf _ || true;mkdir _;cd _;wget http://distro.ibiblio.org/puppylinux/puppy-bionic/bionicpup64/bionicpup64-8.0-uefi.iso;7z x bionicpup64-8.0-uefi.iso;echo "$(pwd)/puppy_bionicpup64_8.0.sfs")
